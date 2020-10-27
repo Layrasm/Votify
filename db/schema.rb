@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_160734) do
+ActiveRecord::Schema.define(version: 2020_10_27_175422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ballots", force: :cascade do |t|
+    t.string "candidate"
+    t.string "year"
+    t.boolean "is_submitted"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_ballots_on_user_id"
+  end
+
+  create_table "candidates", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "party"
+    t.string "policy"
+    t.string "age"
+    t.integer "vote_total"
+    t.bigint "ballot_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ballot_id"], name: "index_candidates_on_ballot_id"
+  end
 
   create_table "images", force: :cascade do |t|
     t.string "image_url"
@@ -62,5 +85,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_160734) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "ballots", "users"
+  add_foreign_key "candidates", "ballots"
   add_foreign_key "images", "users"
 end
