@@ -4,8 +4,8 @@ import Ballot from './Ballot';
 const Home = () => {
   return(
     <div>
-      <h1>Main Page</h1>
-      <Ballot></Ballot>
+      
+      <Ballot/>
     </div>
 
   );

@@ -5,6 +5,11 @@ require "faker"
 #   Thing.create(name: Faker::Name.name)
 # end
 
+User.destroy_all
+Ballot.destroy_all
+Candidate.destroy_all
+
+
 10.times do
   user = User.create(
   email: Faker::Internet.email,
@@ -23,7 +28,7 @@ b = Ballot.create(
 )
 
 
-8.times do
+2.times do
   Candidate.create(
     first_name: Faker::Name.first_name,
     last_name:  Faker::Name.last_name,
@@ -32,8 +37,12 @@ b = Ballot.create(
     age: rand(15..99),
     vote_total: rand(1..100000),
     ballot_id: b.id,
+    image_url: open(Faker::Avatar.image(slug = nil, size = '300x300', format = 'jpg')),
 
   )
 end
 end
 end
+
+
+

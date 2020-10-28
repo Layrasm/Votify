@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, } from 'react-router-dom';
 import { initMiddleware, } from 'devise-axios';
 import AuthProvider from "./providers/AuthProvider";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 initMiddleware();
 

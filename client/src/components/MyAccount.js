@@ -3,6 +3,7 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import ImageUploader from '../images/ImageUploader';
+import {Card, Jumbotron} from 'react-bootstrap';
 
 
 const MyAccount = (props) => {

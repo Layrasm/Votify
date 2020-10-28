@@ -10,18 +10,13 @@ const NavBar = () => {
   
 
   const getRightNav = () => {
+    
     if (user) {
       return (
-        <>
-          <div 
-            onClick={() => handleLogout(history)}
-            style={{ color: "black"}}>
-            Logout!
+        
+          <div style={{ display : 'inline-block' }} onClick={() => handleLogout(history)}>Logout!</div>
 
-            
-          </div>
-
-        </>
+      
       );
     } else {
       return (
@@ -40,11 +35,11 @@ const NavBar = () => {
 
     <div style={styles.navbar}>
       {user && <Link to="/home">Home</Link>}
-      <span style={{ marginRight: "10px" }}></span>
+      <span style={{ margin:"5px"}}></span>
       {user && <Link to="/thingsDemo">Things</Link>}
-      <span style={{ marginRight: "10px" }}></span>
+      <span style={{ margin:"5px"}}></span>
       {user && <Link to="/MyAccount">My Account</Link>}
-      <span style={{ marginRight: "10px" }}></span>
+      <span style={{ margin:"5px" }}></span>
       {getRightNav()}
     </div>
   );
@@ -56,6 +51,11 @@ const styles = {
     outline: "2px solid",
     outlineColor: "black",
     padding: "10px",
+    display: "inline-block",
+    width: "100%",
+    margin:"0px",
+    marginBottom: "10px",
+
   },
 };
 

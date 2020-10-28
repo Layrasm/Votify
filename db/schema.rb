@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_175422) do
     t.string "policy"
     t.string "age"
     t.integer "vote_total"
+    t.string "image_url"
     t.bigint "ballot_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
