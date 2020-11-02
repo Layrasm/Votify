@@ -3,7 +3,7 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import ImageUploader from '../images/ImageUploader';
-import {Card, Jumbotron} from 'react-bootstrap';
+import {Card, Jumbotron, Image, Col, Row, Container, Button} from 'react-bootstrap';
 
 
 const MyAccount = (props) => {
@@ -16,27 +16,25 @@ const MyAccount = (props) => {
   
   }, []); 
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
+
 
   return(
-    <div>
-      <h1>User Profile</h1>
-      <h3>Name: {user.first_name} {user.last_name}</h3>
-      <h3>Email: {user.email}</h3>
-     
-      <img src={user.image}/>
-      <button>Edit Info</button>
+  <div>
+  <Card style={{ width: '400px' }}>
+    <Card.Img variant="top" src={user.image} />
+    <Card.Body>
+      <Card.Title>{user.first_name} {user.last_name}</Card.Title>
+      <Card.Text>
+      Email: {user.email}
+      </Card.Text>
+      <Button variant="primary">Edit Info</Button>
+    </Card.Body>
+    <small>Add image or upload new image. Page will refresh automatially.</small>
+    <ImageUploader userID={user.id}/>
+  </Card>
+
       
-      {/* {displayImage()} */}
-      <br/>
-      <br/>
-      <br/>
-      Add or update current photo
-      <ImageUploader userID={user.id}/>
-      
-    </div>
+  </div>
   );
 };
 

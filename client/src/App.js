@@ -10,6 +10,7 @@ import FetchUser from "./components/FetchUser";
 import ProtectedRoute from "./components/ProtectedRoute";
 import WelcomePage from "./components/WelcomePage";
 import MyAccount from './components/MyAccount';
+import Candidates from "./components/Candidates";
 
 
 
@@ -25,7 +26,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <ProtectedRoute exact path="/home" component={Home} />
-          <ProtectedRoute exact path="/ThingsDemo" component={ThingsDemo} />
+          <ProtectedRoute exact path="/candidates" component={Candidates} />
           <ProtectedRoute exact path="/MyAccount" component={MyAccount}/>
           
         </Switch>
