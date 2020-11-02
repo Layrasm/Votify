@@ -9,6 +9,11 @@ User.destroy_all
 Ballot.destroy_all
 Candidate.destroy_all
 
+def image_fetcher
+  open(Faker::Avatar.image)
+  rescue
+  open("https://robohash.org/sitsequiquia.png?size=300x300&set=set1")
+end
 
 10.times do
   user = User.create(
@@ -28,7 +33,7 @@ b = Ballot.create(
 )
 
 
-2.times do
+2.times do |n|
   Candidate.create(
     first_name: Faker::Name.first_name,
     last_name:  Faker::Name.last_name,
@@ -37,7 +42,8 @@ b = Ballot.create(
     age: rand(15..99),
     vote_total: rand(1..100000),
     ballot_id: b.id,
-    image_url: open(Faker::Avatar.image(slug = nil, size = '300x300', format = 'jpg')),
+    is_selected: false,
+    image_url: Faker::Avatar.image('app/assets/image.jpg'),
 
   )
 end

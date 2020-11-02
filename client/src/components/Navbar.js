@@ -36,8 +36,6 @@ const NavBar = () => {
     <div style={styles.navbar}>
       {user && <Link to="/home">Home</Link>}
       <span style={{ margin:"5px"}}></span>
-      {user && <Link to="/thingsDemo">Things</Link>}
-      <span style={{ margin:"5px"}}></span>
       {user && <Link to="/MyAccount">My Account</Link>}
       <span style={{ margin:"5px"}}></span>
       {user && <Link to="/Candidates">Candidates</Link>}

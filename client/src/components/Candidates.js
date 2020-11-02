@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import {Card, CardColumns} from 'react-bootstrap';
+import {Card, CardColumns, CardDeck, Container} from 'react-bootstrap';
+import "../App.css";
 
 const Candidates = (props) => {
 
@@ -25,8 +26,8 @@ const Candidates = (props) => {
   
   const renderCandidates = () => {
     return candidates.map((candidate) => (
-      <CardColumns key={candidate.id}>
-        <Card>
+      
+        <Card key={candidate.id}>
           <Card.Img variant="top" src={candidate.image_url} /> 
           <Card.Body>
             <Card.Title>Name: {candidate.first_name} {candidate.last_name}</Card.Title>
@@ -35,7 +36,7 @@ const Candidates = (props) => {
             <Card.Text>Policy: {candidate.policy}</Card.Text>
           </Card.Body> 
         </Card>
-      </CardColumns>
+      
     ));
   }
 
@@ -46,10 +47,12 @@ const Candidates = (props) => {
 
 
   return(
-    <div>
-      {renderCandidates()}
-    </div>
-
+    
+      <CardDeck>
+        <CardColumns style={{width:"75%", margin:"auto"}}>
+        {renderCandidates()}
+        </CardColumns>
+      </CardDeck>
   );
 
 };
