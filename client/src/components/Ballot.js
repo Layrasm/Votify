@@ -30,19 +30,19 @@ const Ballot = (props) => {
     <>
     
       {ballots.map((ballot) => (
-      <Container>
+      <div>
 
       
       <h1>Ballot</h1>
       
       <p1>{ballot.year}</p1>
+      
       <Candidates ballotID={ballot.id} />
       
       
      
-      </Container>
+      </div>
       ))}
-    
    </>
   );
 };

@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useFormInput } from "../customHooks/useFormInput";
 import { AuthContext } from "../providers/AuthProvider";
-// import {Form,Button,Segment, Label} from "semantic-ui-react";
-import ProtectedRoute from './ProtectedRoute';
+import {Form, Container, Button} from "react-bootstrap";
+
 
 const Register = (props) => {
   const email = useFormInput("", "Email");
@@ -38,26 +38,30 @@ const Register = (props) => {
 
 
   return (
-    <container>
-      <h1 className="landing">Register</h1>
-      <form onSubmit={handleSubmit}>
-        <p>Email</p>
-        <input autoFocus {...email} />
-        <p>First Name</p>
-        <input autoFocus {...firstName} />
-        <p>Last Name</p>
-        <input autoFocus {...lastName} />
-        <p>Password</p>
-        <input type="password" {...password} />
-        <p>Password Confirmation</p>
-        <input type="password" {...passwordConfrimation} />
-        <br />
-        <br />
-        <button variant="success" type="submit">Register</button>
-      </form>
-      <br />
-      <button variant="info" href="/">Back</button>
-    </container>
+    <>
+      <Container style={{width:"40%"}}>
+      <h1>Register</h1>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Control autoFocus type="email" {...email} />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control {...firstName} />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control {...lastName} />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control type="password" {...password} />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control type="password" {...passwordConfrimation} />
+        </Form.Group>
+        <Button className="m-1"  type="submit">Register</Button>
+        <Button className="m-1"  href="/">Back</Button>
+      </Form>
+      </Container>
+    </>
   );
 };
 

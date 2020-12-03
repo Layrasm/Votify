@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
+
 import NavBar from "./components/Navbar";
 // import { Container } from "semantic-ui-react";
 import Register from "./components/Register";
@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import WelcomePage from "./components/WelcomePage";
 import MyAccount from './components/MyAccount';
 import Candidates from "./components/Candidates";
+import Ballot from "./components/Ballot";
 import "./App.css";
 
 
@@ -25,7 +26,7 @@ function App() {
           <Route exact path='/' component={WelcomePage}/>
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <ProtectedRoute exact path="/home" component={Home} />
+          <ProtectedRoute exact path="/home" component={Ballot} />
           <ProtectedRoute exact path="/candidates" component={Candidates} />
           <ProtectedRoute exact path="/MyAccount" component={MyAccount}/>
           
