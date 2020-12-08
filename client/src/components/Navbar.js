@@ -22,7 +22,7 @@ const NavBar = () => {
       return (
         <div>
         <Link to="/register">Register</Link>
-        <br />
+        <span style={{ margin:"5px"}}></span>
         <Link to="/login">Login</Link>
         </div>
       );
@@ -50,10 +50,10 @@ const styles = {
     background: "white",
     outline: "2px solid",
     outlineColor: "black",
-    padding: "10px",
-    display: "inline-block",
+    padding: "3px",
+    display: "flex",
     width: "100%",
-    margin:"0px",
+    margin:"3px",
     marginBottom: "10px",
 
   },
